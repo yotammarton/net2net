@@ -192,6 +192,7 @@ class CelebABase(Dataset):
 
 class CelebA(CelebABase):
     """CelebA with support for resizing and fixed cropping as in lucic2018"""
+
     def __init__(self, config):
         super().__init__(config)
         self.size = config["spatial_size"]
@@ -207,7 +208,7 @@ class CelebA(CelebABase):
             "Straight_Hair", "Wavy_Hair", "Wearing_Earrings",
             "Wearing_Hat", "Wearing_Lipstick", "Wearing_Necklace",
             "Wearing_Necktie", "Young"]
-        self.cropper = albumentations.CenterCrop(height=160,width=160)
+        self.cropper = albumentations.CenterCrop(height=160, width=160)
         self.rescaler = albumentations.SmallestMaxSize(max_size=self.size)
         self.preprocessor = albumentations.Compose([self.cropper, self.rescaler])
 
@@ -289,6 +290,7 @@ class CelebFQValidation(Dataset):
 
 class CCFQTrain(Dataset):
     """CelebA, CelebA-HQ and FFHQ"""
+
     def __init__(self, size):
         d1 = CelebATrain(size=size, keys=["image"])
         d2 = CelebAHQTrain(size=size, keys=["image"])
@@ -306,6 +308,7 @@ class CCFQTrain(Dataset):
 
 class CCFQValidation(Dataset):
     """CelebA, CelebA-HQ and FFHQ"""
+
     def __init__(self, size):
         d1 = CelebAValidation(size=size, keys=["image"])
         d2 = CelebAHQValidation(size=size, keys=["image"])
@@ -323,6 +326,7 @@ class CCFQValidation(Dataset):
 
 class AnimeFacesTrain(FacesBase):
     """Anime Faces obtained from Gwern's https://www.gwern.net/Crops """
+
     def __init__(self, size, keys=None):
         super().__init__()
         root = "data/anime"
@@ -469,7 +473,19 @@ class FFHQAndPortraitsValidation(Dataset):
         ex["class"] = y
         return ex
 
+
 if __name__ == "__main__":
+    d = CelebAHQTrain(size=256)
+    print("size CelebAHQTrain:", len(d))
+    d = CelebAHQValidation(size=256)
+    print("size CelebAHQValidation:", len(d))
+    x = d[0]["image"]
+    print(x.shape)
+    print(type(x))
+    print(x.max(), x.min())
+    exit(1)
+
+    # ---------------------------------
 
     d = FFHQTrain(size=256)
     print("size FFHQTrain:", len(d))
