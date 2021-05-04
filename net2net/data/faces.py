@@ -484,8 +484,6 @@ if __name__ == "__main__":
     print(type(x))
     print(x.max(), x.min())
 
-    exit(1)
-
     d = CelebAHQTrain(size=256)
     print("size CelebAHQTrain:", len(d))
     d = CelebAHQValidation(size=256)
