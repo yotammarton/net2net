@@ -33,10 +33,10 @@ class CelebAHQTrain(FacesBase):
     def __init__(self, size, keys=None):
         super().__init__()
         root = "data/celebahq"
-        with open("data/celebahqtrain.txt", "r") as f:
+        with open("data/new_celebahqtrain.txt", "r") as f:
             relpaths = f.read().splitlines()
         paths = [os.path.join(root, relpath) for relpath in relpaths]
-        self.data = NumpyPaths(paths=paths, size=size, random_crop=False)
+        self.data = ImagePaths(paths=paths, size=size, random_crop=False)
         self.keys = keys
 
 
@@ -44,10 +44,10 @@ class CelebAHQValidation(FacesBase):
     def __init__(self, size, keys=None):
         super().__init__()
         root = "data/celebahq"
-        with open("data/celebahqvalidation.txt", "r") as f:
+        with open("data/new_celebahqvalidation.txt", "r") as f:
             relpaths = f.read().splitlines()
         paths = [os.path.join(root, relpath) for relpath in relpaths]
-        self.data = NumpyPaths(paths=paths, size=size, random_crop=False)
+        self.data = ImagePaths(paths=paths, size=size, random_crop=False)
         self.keys = keys
 
 
