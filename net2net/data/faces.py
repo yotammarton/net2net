@@ -475,18 +475,6 @@ class FFHQAndPortraitsValidation(Dataset):
 
 
 if __name__ == "__main__":
-    d = CelebAHQTrain(size=256)
-    print("size CelebAHQTrain:", len(d))
-    d = CelebAHQValidation(size=256)
-    print("size CelebAHQValidation:", len(d))
-    x = d[0]["image"]
-    print(x.shape)
-    print(type(x))
-    print(x.max(), x.min())
-    exit(1)
-
-    # ---------------------------------
-
     d = FFHQTrain(size=256)
     print("size FFHQTrain:", len(d))
     d = FFHQValidation(size=256)
