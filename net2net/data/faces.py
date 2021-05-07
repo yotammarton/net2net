@@ -475,15 +475,14 @@ class FFHQAndPortraitsValidation(Dataset):
 
 
 if __name__ == "__main__":
-    d = AnimeFacesTrain(size=256)
-    print("size AnimeFacesTrain:", len(d))
-    d = AnimeFacesValidation(size=256)
-    print("size AnimeFacesValidation:", len(d))
+    d = CelebAHQTrain(size=256)
+    print("size CelebAHQTrain:", len(d))
+    d = CelebAHQValidation(size=256)
+    print("size CelebAHQValidation:", len(d))
     x = d[0]["image"]
     print(x.shape)
     print(type(x))
     print(x.max(), x.min())
-    exit(1)
 
     d = FFHQTrain(size=256)
     print("size FFHQTrain:", len(d))
@@ -494,10 +493,10 @@ if __name__ == "__main__":
     print(type(x))
     print(x.max(), x.min())
 
-    d = CelebAHQTrain(size=256)
-    print("size CelebAHQTrain:", len(d))
-    d = CelebAHQValidation(size=256)
-    print("size CelebAHQValidation:", len(d))
+    d = AnimeFacesTrain(size=256)
+    print("size AnimeFacesTrain:", len(d))
+    d = AnimeFacesValidation(size=256)
+    print("size AnimeFacesValidation:", len(d))
     x = d[0]["image"]
     print(x.shape)
     print(type(x))
